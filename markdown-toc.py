@@ -28,7 +28,7 @@ def process_file(path: str, min_depth: int, max_toc_depth: int) -> str:
     for line in lines:
         if re.match(r"^\s*```", line):
             in_code_block = not in_code_block
-        m = re.match(r"^(#+) ([\d.]+)? (.*)", line)
+        m = re.match(r"^(#+) ([\d.]+ )?(.*)", line)
         if m and not in_code_block:
             depth = len(m[1]) - min_depth
             if depth < 0:
